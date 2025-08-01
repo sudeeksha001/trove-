@@ -27,15 +27,15 @@ const Hero = () => {
               
               <div className="space-y-4">
                 <h2 className="text-3xl lg:text-4xl font-playfair text-gray-800 leading-relaxed">
-                  Sweet Treasures for <br />
+                  The Dessert Den <br />
                   <span className="text-primary font-semibold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-                    Every Moment
+                    Sweet Memories
                   </span>
                 </h2>
                 
                 <p className="text-lg text-gray-600 max-w-xl font-inter leading-relaxed">
-                  Discover our exquisite collection of handcrafted desserts, sugarless delights, 
-                  and magical treats specially created for little ones. Every bite tells a story of passion and perfection.
+                  Welcome to our cozy dessert haven where every treat tells a story. From traditional family recipes 
+                  to innovative creations, each dessert is crafted with love and the finest ingredients.
                 </p>
               </div>
             </div>

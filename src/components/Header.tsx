@@ -9,11 +9,11 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary-glow rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-xl">T</span>
+              <span className="text-white font-bold text-xl font-italiana">T</span>
             </div>
             <div>
               <h1 className="text-4xl font-italiana text-primary font-bold">Trove</h1>
-              <p className="text-xs text-gray-600 font-inter -mt-1">For the Love of Desserts</p>
+              <p className="text-xs text-gray-600 font-inter -mt-1">The Dessert Den</p>
             </div>
           </div>
 
