@@ -1,50 +1,200 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import CategorySection from "@/components/CategorySection";
 import FeaturedSection from "@/components/FeaturedSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ProcessSection from "@/components/ProcessSection";
-import GallerySection from "@/components/GallerySection";
 import NewsletterSection from "@/components/NewsletterSection";
 import Footer from "@/components/Footer";
-import { Cake, Heart, Sparkles } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ShoppingCart, Heart, Star, Coffee, Cookie, Cake } from "lucide-react";
 
 const Index = () => {
-  const dessertItems = [
-    { name: "Chocolate Truffle Cake", price: 800, isPopular: true, description: "Decadent chocolate layers with premium truffle and rich ganache" },
-    { name: "Red Velvet Cupcake", price: 60, description: "Velvety smooth cupcake with cream cheese frosting" },
-    { name: "Vanilla Cupcake", price: 50, description: "Classic vanilla cupcake with creamy buttercream frosting" },
-    { name: "Double Chocolate Muffin", price: 40, description: "Moist muffin loaded with chocolate chips and cocoa" },
-    { name: "Black Forest Cake", price: 600, isPopular: true, description: "Cherry and chocolate classic with whipped cream" },
-    { name: "Strawberry Cake", price: 700, description: "Fresh strawberry celebration cake with berry compote" },
-    { name: "Mawa Cake", price: 600, description: "Traditional Indian milk cake with cardamom essence" },
-    { name: "Butterscotch Cake", price: 600, description: "Butterscotch flavored sponge with caramel drizzle" },
-    { name: "Choco Chip Cookies", price: 60, description: "Crispy cookies loaded with chocolate chips" },
-    { name: "Chocolate Brownies", price: 80, description: "Fudgy and rich chocolate brownies with nuts" }
+  const cupcakes = [
+    { 
+      name: "Vanilla Cupcake", 
+      price: 50, 
+      image: "https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "Born in our grandmother's kitchen in 1952, this classic vanilla cupcake recipe has been passed down through three generations. Made with Madagascar vanilla beans and topped with our signature buttercream swirl.",
+      isPopular: true
+    },
+    { 
+      name: "Chocolate Cupcake", 
+      price: 60, 
+      image: "https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "Inspired by a midnight craving in 1967, our founder created this rich chocolate cupcake using Belgian cocoa. The secret ingredient? A hint of espresso that enhances the chocolate flavor without overpowering it.",
+      isPopular: false
+    },
+    { 
+      name: "Double Chocolate Muffin", 
+      price: 40, 
+      image: "https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "Created for chocolate lovers who wanted more! This indulgent muffin was born when a customer asked for 'double the chocolate' in 1985. We obliged with chocolate chips and cocoa powder in perfect harmony.",
+      isPopular: false
+    },
+    { 
+      name: "Red Velvet Cupcake", 
+      price: 60, 
+      image: "https://images.pexels.com/photos/1721932/pexels-photo-1721932.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "A Southern belle's favorite that found its way to our kitchen in 1978. The vibrant red color comes from natural beetroot, and the tangy cream cheese frosting balances the subtle cocoa flavor perfectly.",
+      isPopular: true
+    },
+    { 
+      name: "Strawberry Cupcake", 
+      price: 60, 
+      image: "https://images.pexels.com/photos/1028714/pexels-photo-1028714.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "Summer of 1982 brought an abundance of fresh strawberries, inspiring this delightful creation. Real strawberry puree is folded into the batter, creating natural pink swirls and bursts of fruity flavor.",
+      isPopular: false
+    }
   ];
 
-  const sugarlessItems = [
-    { name: "Sugarless Chocolate Cake", price: 550, isPopular: true, description: "Rich chocolate cake sweetened with natural dates and honey" },
-    { name: "Sugarless Vanilla Cake", price: 500, description: "Light vanilla sponge with stevia and natural sweeteners" },
-    { name: "Sugarless Carrot Cake", price: 600, description: "Healthy carrot cake with walnuts and cream cheese frosting" },
-    { name: "Sugarless Banana Bread", price: 450, description: "Naturally sweet banana bread with whole wheat flour" },
-    { name: "Sugarless Oat Cookies", price: 40, description: "Wholesome oat cookies with raisins and nuts" },
-    { name: "Sugarless Date Brownies", price: 90, isPopular: true, description: "Date-sweetened fudgy brownies with dark chocolate" },
-    { name: "Sugarless Coconut Ladoo", price: 35, description: "Traditional coconut sweet balls with jaggery" },
-    { name: "Sugarless Fruit Cake", price: 650, description: "Mixed dry fruit cake sweetened with honey" }
+  const pastries = [
+    { 
+      name: "Mawa Cake", 
+      price: 600, 
+      image: "https://images.pexels.com/photos/140831/pexels-photo-140831.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "A tribute to Mumbai's Parsi heritage, this cake was first baked in our ovens in 1965. Made with reduced milk (mawa) and cardamom, it represents the perfect fusion of Indian flavors with European baking techniques.",
+      isPopular: true
+    },
+    { 
+      name: "Vanilla Cake", 
+      price: 500, 
+      image: "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "The foundation of all great cakes, our vanilla sponge recipe dates back to 1958. Three layers of moist vanilla cake with vanilla buttercream - simplicity at its finest, perfected over decades.",
+      isPopular: false
+    },
+    { 
+      name: "Chocolate Truffle Cake", 
+      price: 800, 
+      image: "https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "Our masterpiece, born from a challenge in 1990 to create the ultimate chocolate experience. Layers of dark chocolate sponge, truffle ganache, and chocolate shavings create a symphony of textures and flavors.",
+      isPopular: true
+    },
+    { 
+      name: "Butterscotch Cake", 
+      price: 600, 
+      image: "https://images.pexels.com/photos/1721932/pexels-photo-1721932.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "Inspired by childhood memories of butterscotch candies, this cake was created in 1975. The butterscotch sauce is made from scratch, creating that perfect balance of sweet and slightly salty caramel notes.",
+      isPopular: false
+    },
+    { 
+      name: "Rasmalai Cake", 
+      price: 800, 
+      image: "https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "A fusion masterpiece created in 2005, combining the beloved Bengali sweet rasmalai with modern cake artistry. Sponge soaked in cardamom milk with pieces of soft paneer and pistachios.",
+      isPopular: true
+    },
+    { 
+      name: "Black Forest Cake", 
+      price: 600, 
+      image: "https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "A German classic that found its home in our bakery in 1972. Layers of chocolate sponge, fresh cherries, and whipped cream create this timeless favorite that has delighted generations.",
+      isPopular: false
+    },
+    { 
+      name: "Strawberry Cake", 
+      price: 700, 
+      image: "https://images.pexels.com/photos/1028714/pexels-photo-1028714.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "Created during strawberry season in 1980, this cake celebrates the fruit's natural sweetness. Fresh strawberries are layered between vanilla sponge with strawberry compote and cream.",
+      isPopular: true
+    },
+    { 
+      name: "Irish Coffee Cake", 
+      price: 600, 
+      image: "https://images.pexels.com/photos/140831/pexels-photo-140831.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "Born from a late-night conversation with an Irish traveler in 1988, this cake combines coffee-soaked sponge with a hint of Irish cream. Perfect for coffee lovers seeking something special.",
+      isPopular: false
+    }
   ];
 
-  const kidsItems = [
-    { name: "Mini Cupcakes (Pack of 6)", price: 180, isPopular: true, description: "Colorful mini cupcakes with fun sprinkles and designs" },
-    { name: "Animal Shaped Cookies", price: 45, description: "Fun animal-shaped cookies with colorful icing" },
-    { name: "Rainbow Cake Slice", price: 80, description: "Vibrant multi-layered rainbow cake slice" },
-    { name: "Chocolate Milk Cake", price: 400, description: "Mild chocolate cake perfect for young taste buds" },
-    { name: "Cartoon Character Cookies", price: 60, description: "Decorated cookies featuring popular cartoon characters" },
-    { name: "Mini Donuts (Pack of 4)", price: 120, isPopular: true, description: "Bite-sized glazed donuts with colorful toppings" },
-    { name: "Strawberry Milk Shake Cake", price: 450, description: "Milkshake flavored sponge with strawberry cream" },
-    { name: "Birthday Special Cupcake", price: 100, description: "Specially decorated birthday cupcake with candle" }
+  const cookies = [
+    { 
+      name: "Chocolate Chip Cookies", 
+      price: 60, 
+      image: "https://images.pexels.com/photos/230325/pexels-photo-230325.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "The accidental masterpiece of 1938 recreated in our kitchen since 1963. When chocolate chunks were added to cookie dough by mistake, magic happened. Our version uses premium Belgian chocolate chips.",
+      isPopular: true
+    },
+    { 
+      name: "Double Chocolate Chip Cookies", 
+      price: 70, 
+      image: "https://images.pexels.com/photos/1028714/pexels-photo-1028714.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "For those who believe more chocolate is always better. Created in 1995 when a customer requested 'the most chocolatey cookie possible.' Cocoa dough studded with white and dark chocolate chips.",
+      isPopular: false
+    },
+    { 
+      name: "Coconut Cookies", 
+      price: 30, 
+      image: "https://images.pexels.com/photos/1721932/pexels-photo-1721932.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "Inspired by tropical beaches and childhood memories, these cookies were first baked in 1970. Made with freshly grated coconut and a hint of vanilla, they transport you to paradise with every bite.",
+      isPopular: false
+    },
+    { 
+      name: "Salted Tea Cookie", 
+      price: 30, 
+      image: "https://images.pexels.com/photos/2067396/pexels-photo-2067396.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "A British tea-time tradition adapted for Indian tastes in 1968. The subtle saltiness enhances the buttery flavor, making it the perfect companion for your evening chai or coffee.",
+      isPopular: false
+    },
+    { 
+      name: "Banana Cake", 
+      price: 60, 
+      image: "https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "Born from a desire to reduce food waste in 1976, this moist cake uses overripe bananas that would otherwise be discarded. The natural sweetness and tender crumb make it irresistibly comforting.",
+      isPopular: true
+    },
+    { 
+      name: "Chocolate Brownies", 
+      price: 80, 
+      image: "https://images.pexels.com/photos/140831/pexels-photo-140831.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "Legend says brownies were invented by accident in 1893, but our version was perfected through years of experimentation starting in 1969. Fudgy, rich, and studded with walnuts for the perfect texture contrast.",
+      isPopular: true
+    },
+    { 
+      name: "Red Velvet Cream Cheese Brownies", 
+      price: 80, 
+      image: "https://images.pexels.com/photos/1028714/pexels-photo-1028714.jpeg?auto=compress&cs=tinysrgb&w=400",
+      story: "A modern twist on two classics, created in 2010 when we wondered what would happen if red velvet met brownies. The cream cheese swirl adds tanginess to the subtle cocoa flavor.",
+      isPopular: false
+    }
   ];
 
+  const DessertSection = ({ title, items, icon, bgColor }: { title: string, items: any[], icon: React.ReactNode, bgColor: string }) => (
+    <section className={`py-24 ${bgColor}`}>
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-20 animate-fade-in">
+          <div className="flex items-center justify-center mb-6">
+            <div className="p-4 bg-primary/10 rounded-full">
+              {icon}
+            </div>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-italiana text-primary mb-4">{title}</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mt-6"></div>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {items.map((item, index) => (
+            <Card 
+              key={index}
+              className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 bg-white/80 backdrop-blur-sm animate-scale-in overflow-hidden"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                {item.isPopular && (
+                  <Badge className="absolute top-4 left-4 bg-primary text-white shadow-lg">
+                    <Star className="w-3 h-3 mr-1" fill="currentColor" />
+                    Popular
+                  </Badge>
+                )}
   return (
     <div className="min-h-screen bg-background">
       <Header />
