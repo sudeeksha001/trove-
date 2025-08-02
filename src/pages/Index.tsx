@@ -160,6 +160,12 @@ const Index = () => {
       isPopular: false
     }
   ];
+
+  // Define missing variables for CategorySection components
+  const dessertItems = pastries; // Use pastries for desserts section
+  const sugarlessItems = cookies.slice(0, 4); // Use first 4 cookies for sugarless section
+  const kidsItems = cupcakes; // Use cupcakes for kids section
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
