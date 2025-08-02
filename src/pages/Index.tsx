@@ -159,42 +159,6 @@ const Index = () => {
       isPopular: false
     }
   ];
-
-  const DessertSection = ({ title, items, icon, bgColor }: { title: string, items: any[], icon: React.ReactNode, bgColor: string }) => (
-    <section className={`py-24 ${bgColor}`}>
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-20 animate-fade-in">
-          <div className="flex items-center justify-center mb-6">
-            <div className="p-4 bg-primary/10 rounded-full">
-              {icon}
-            </div>
-          </div>
-          <h2 className="text-5xl md:text-6xl font-italiana text-primary mb-4">{title}</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-primary-glow mx-auto rounded-full mt-6"></div>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {items.map((item, index) => (
-            <Card 
-              key={index}
-              className="group border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 bg-white/80 backdrop-blur-sm animate-scale-in overflow-hidden"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                {item.isPopular && (
-                  <Badge className="absolute top-4 left-4 bg-primary text-white shadow-lg">
-                    <Star className="w-3 h-3 mr-1" fill="currentColor" />
-                    Popular
-                  </Badge>
-                )}
   return (
     <div className="min-h-screen bg-background">
       <Header />
