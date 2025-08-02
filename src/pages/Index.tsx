@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Heart, Star, Coffee, Cookie, Cake } from "lucide-react";
+import { ShoppingCart, Heart, Star, Coffee, Cookie, Cake, Sparkles } from "lucide-react";
 
 const Index = () => {
   const cupcakes = [
